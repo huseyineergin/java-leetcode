@@ -97,4 +97,26 @@ public class EasyProblems {
 
     return n <= availablePots;
   }
+
+  // 345. Reverse Vowels of a String
+  public String reverseVowels(String s) {
+    List<Character> vowels = new ArrayList<>();
+    StringBuilder sb = new StringBuilder(s);
+
+    for (int i = 0; i < sb.length(); i++) {
+      char c = sb.charAt(i);
+      if ("aeiouAEIOU".indexOf(c) != -1) {
+        vowels.add(c);
+      }
+    }
+
+    for (int i = 0; i < sb.length(); i++) {
+      char c = sb.charAt(i);
+      if ("aeiouAEIOU".indexOf(c) != -1) {
+        sb.setCharAt(i, vowels.removeLast());
+      }
+    }
+
+    return sb.toString();
+  }
 }
