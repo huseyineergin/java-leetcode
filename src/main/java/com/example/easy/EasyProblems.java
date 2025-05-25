@@ -79,4 +79,22 @@ public class EasyProblems {
 
     return result;
   }
+
+  // 605. Can Place Flowers
+  public boolean canPlaceFlowers(int[] flowerbed, int n) {
+    int availablePots = 0;
+
+    for (int i = 0; i < flowerbed.length; i++) {
+      int next = (i == flowerbed.length - 1) ? 0 : flowerbed[i + 1];
+      int prev = (i == 0) ? 0 : flowerbed[i - 1];
+
+      if (flowerbed[i] == 0 && prev == 0 && next == 0) {
+        flowerbed[i] = 1;
+        availablePots++;
+        i++;
+      }
+    }
+
+    return n <= availablePots;
+  }
 }
