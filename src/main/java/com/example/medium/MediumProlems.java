@@ -41,4 +41,24 @@ public class MediumProlems {
 
     return answer;
   }
+
+  // 334. Increasing Triplet Subsequence
+  public boolean increasingTriplet(int[] nums) {
+    int lowest = Integer.MAX_VALUE;
+    int middle = Integer.MAX_VALUE;
+
+    for (int i = 0; i < nums.length; i++) {
+      int curr = nums[i];
+
+      if (curr <= lowest) {
+        lowest = curr;
+      } else if (curr <= middle) {
+        middle = curr;
+      } else {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
