@@ -86,4 +86,27 @@ public class MediumProlems {
 
     return max;
   }
+
+  // 1679. Max Number of K-Sum Pairs
+  public int maxOperations(int[] nums, int k) {
+    int left = 0, right = nums.length - 1;
+    int operations = 0;
+    Arrays.sort(nums);
+
+    while (left < right) {
+      int sum = nums[left] + nums[right];
+
+      if (sum == k) {
+        operations++;
+        right--;
+        left++;
+      } else if (sum < k) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+
+    return operations;
+  }
 }
