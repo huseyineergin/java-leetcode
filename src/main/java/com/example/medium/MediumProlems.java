@@ -61,4 +61,29 @@ public class MediumProlems {
 
     return false;
   }
+
+  // 11. Container With Most Water
+  public int maxArea(int[] height) {
+    int left = 0, right = height.length - 1;
+    int max = 0;
+
+    while (left < right) {
+      int width = right - left;
+      int lHeight = height[left];
+      int rHeight = height[right];
+      int minHeight = Math.min(lHeight, rHeight);
+      int area = minHeight * width;
+
+      if (lHeight < rHeight) {
+        left++;
+      } else {
+        right--;
+      }
+
+      if (area > max)
+        max = area;
+    }
+
+    return max;
+  }
 }
