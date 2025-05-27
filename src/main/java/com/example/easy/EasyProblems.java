@@ -119,4 +119,21 @@ public class EasyProblems {
 
     return sb.toString();
   }
+
+  // 283. Move Zeroes
+  public void moveZeroes(int[] nums) {
+    int a = 0, b = 0;
+
+    while (a < nums.length && b < nums.length) {
+      if (nums[a] == 0 && nums[b] == 0) {
+        b++;
+      } else {
+        int temp = nums[b];
+        nums[b] = nums[a];
+        nums[a] = temp;
+        b++;
+        a++;
+      }
+    }
+  }
 }
